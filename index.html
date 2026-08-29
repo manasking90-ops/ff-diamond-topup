@@ -1,16 +1,229 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ shop_name }}</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head><body>
-<div class="topbar">🔥 LIMITED TIME OFFER! <b>50% OFF</b> ON ALL DIAMOND PACKAGES 💎 <span id="offerTimer">01:00:00</span></div>
-<header class="nav wrap"><a class="brand" href="/"><span class="brand-gem">◆</span><span>FF DIAMOND<small>TOP-UP CENTER</small></span></a><nav><a class="active" href="/">HOME</a><a href="#topup">TOP-UP</a><a href="#offers">OFFERS</a><a href="#how">HOW IT WORKS</a><a href="/admin/login">ADMIN</a></nav><a class="login" href="#topup">◯ Login / Register</a></header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ shop_name }} | Diamond Top-Up</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="logo">
+        💎 <span>{{ shop_name }}</span>
+    </div>
+
+    <div class="status">
+        ● INSTANT DELIVERY
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ⚡ FAST • SECURE • RELIABLE
+        </div>
+
+        <h1>
+            POWER UP YOUR
+            <span>FREE FIRE</span>
+            ACCOUNT
+        </h1>
+
+        <p>
+            Get your diamonds quickly with our simple and secure
+            top-up service.
+        </p>
+
+        <a href="#packages" class="hero-btn">
+            💎 VIEW DIAMOND PACKAGES
+        </a>
+
+    </div>
+
+    <div class="hero-diamond">
+        💎
+    </div>
+
+</section>
+
+
+<div class="stats">
+
+    <div>
+        <strong>⚡</strong>
+        <span>Fast Delivery</span>
+    </div>
+
+    <div>
+        <strong>🔒</strong>
+        <span>Secure Payment</span>
+    </div>
+
+    <div>
+        <strong>💎</strong>
+        <span>Best Packages</span>
+    </div>
+
+</div>
+
+
 <main>
-<section class="hero wrap"><div class="hero-copy"><div class="eyebrow">⚡ LIMITED TIME • INSTANT PROCESSING</div><h1>TOP-UP FREE FIRE<br><span>DIAMONDS</span></h1><p class="lead">100% SAFE <i>•</i> INSTANT DELIVERY <i>•</i> BEST PRICES</p><p class="sub">Choose your package, make a payment, and submit your payment proof for manual verification.</p><div class="trust"><span>🚀 <b>Instant</b><small>Processing</small></span><span>🛡️ <b>Safe & Secure</b><small>Manual verification</small></span><span>🎧 <b>24/7 Support</b><small>Order assistance</small></span><span>✦ <b>Best Price</b><small>Special offers</small></span></div></div><div class="hero-art"><div class="burst">LIMITED TIME<strong>50%</strong><em>OFF</em><small>ON ALL PACKAGES</small></div><div class="orb orb1">◇</div><div class="orb orb2">◇</div><div class="character">◈</div></div></section>
-<section id="topup" class="account wrap"><div class="section-kicker">01 / START HERE</div><h2>TOP-UP YOUR <span>ACCOUNT</span></h2><form class="account-form" action="#packages" onsubmit="return saveFields()"><label>PLAYER UID<input id="uid" placeholder="Enter your Free Fire UID" inputmode="numeric" required></label><label>SERVER<select id="server" required><option value="">Select Server</option><option>India</option><option>Brazil</option><option>Indonesia</option><option>Other</option></select></label><button class="primary" type="submit">⌕ CHECK AVAILABILITY</button></form><p class="hint">ⓘ Never share your game password. We only need your UID and server.</p></section>
-<section id="packages" class="packages wrap"><div class="section-title"><div><div class="section-kicker">02 / CHOOSE YOUR PACKAGE</div><h2>CHOOSE <span>DIAMOND</span> PACKAGE</h2></div><div class="live">● LIVE OFFERS</div></div><div class="cards">{% for p in packages %}<article class="card {% if p.badge %}featured{% endif %}">{% if p.badge %}<div class="badge">{{ p.badge }}</div>{% endif %}<div class="gem-art">◇</div><div class="diamonds">💎 {{ p.diamonds }}</div><div class="old">₹{{ p.old }}</div><div class="price">₹{{ p.price }}</div><a class="buy" href="{{ url_for('buy', package_id=p.id) }}">BUY NOW <b>›</b></a></article>{% endfor %}</div></section>
-<section id="offers" class="offerbox wrap"><div class="gift">🎁</div><div><b>SPECIAL 50% OFF!</b><p>Limited-time pricing on selected diamond packages.</p></div><div class="count" id="offerTimer2">01:00:00</div></section>
-<section class="features wrap"><div><strong>🚀</strong><b>INSTANT PROCESSING</b><small>Fast order review after payment proof.</small></div><div><strong>🛡️</strong><b>SAFE & SECURE</b><small>Never share your game password.</small></div><div><strong>🎧</strong><b>24/7 SUPPORT</b><small>Help available for order issues.</small></div><div><strong>✦</strong><b>BEST PRICE</b><small>Discounted package offers.</small></div></section>
-<section id="how" class="how wrap"><div class="section-kicker">03 / SIMPLE PROCESS</div><h2>HOW IT <span>WORKS?</span></h2><div class="steps"><div><i>1</i><b>ENTER UID & SERVER</b><small>Provide your player details.</small></div><div><i>2</i><b>CHOOSE PACKAGE</b><small>Select your diamonds.</small></div><div><i>3</i><b>MAKE PAYMENT</b><small>Pay using the displayed QR.</small></div><div><i>4</i><b>SUBMIT PROOF</b><small>Upload screenshot + UTR.</small></div></div></section>
-</main><footer class="footer"><div><div class="brand"><span class="brand-gem">◆</span><span>FF DIAMOND<small>TOP-UP CENTER</small></span></div><p>Premium gaming top-up storefront demo. Configure your own payment details before production use.</p></div><div><b>QUICK LINKS</b><a href="#topup">Top-up</a><a href="#packages">Packages</a><a href="#how">How it works</a></div><div><b>SUPPORT</b><a href="/admin/login">Admin</a><a href="#">Terms</a><a href="#">Privacy</a></div><div><b>PAYMENT</b><span>UPI • QR • Manual Review</span><span class="online">● ONLINE</span></div></footer><div class="copyright">© 2026 {{ shop_name }}. Demo storefront.</div>
-<script>function saveFields(){localStorage.setItem('uid',document.getElementById('uid').value);localStorage.setItem('server',document.getElementById('server').value);return true}document.getElementById('uid').value=localStorage.getItem('uid')||'';document.getElementById('server').value=localStorage.getItem('server')||'';let end=localStorage.getItem('offerEnd');if(!end||Number(end)<Date.now()){end=Date.now()+3600000;localStorage.setItem('offerEnd',end)}function tick(){let s=Math.max(0,Math.floor((Number(end)-Date.now())/1000)),h=Math.floor(s/3600);s%=3600;let m=Math.floor(s/60);s%=60;let t=[h,m,s].map(x=>String(x).padStart(2,'0')).join(':');document.getElementById('offerTimer').textContent=t;document.getElementById('offerTimer2').textContent=t}tick();setInterval(tick,1000);</script>
-</body></html>
+
+<section class="section-title">
+
+    <div class="small-title">
+        DIAMOND STORE
+    </div>
+
+    <h2>
+        Choose Your <span>Package</span>
+    </h2>
+
+    <p>
+        Select a diamond package and continue to your order.
+    </p>
+
+</section>
+
+
+<div class="packages" id="packages">
+
+{% for package in packages %}
+
+<div class="package">
+
+    {% if package.badge %}
+    <div class="badge">
+        {{ package.badge }}
+    </div>
+    {% endif %}
+
+    <div class="diamond-icon">
+        💎
+    </div>
+
+    <h3>
+        {{ package.diamonds }}
+    </h3>
+
+    <div class="diamond-text">
+        DIAMONDS
+    </div>
+
+    <div class="old">
+        ₹{{ package.old }}
+    </div>
+
+    <div class="price">
+        ₹{{ package.price }}
+    </div>
+
+    <div class="save">
+        SPECIAL PRICE
+    </div>
+
+    <a class="buy-btn"
+       href="{{ url_for('buy', package_id=package.id) }}">
+        BUY NOW <span>→</span>
+    </a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<section class="how">
+
+    <div class="section-title">
+
+        <div class="small-title">
+            SIMPLE PROCESS
+        </div>
+
+        <h2>
+            How To <span>Order</span>
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number">01</div>
+            <h3>Select Package</h3>
+            <p>Choose the diamond package you want.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">02</div>
+            <h3>Enter UID</h3>
+            <p>Enter your Free Fire UID correctly.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">03</div>
+            <h3>Make Payment</h3>
+            <p>Complete the payment using the available method.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">04</div>
+            <h3>Get Diamonds</h3>
+            <p>Submit payment details and receive your order.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="notice">
+
+    <div class="notice-icon">🔐</div>
+
+    <div>
+        <h3>Safe & Secure Top-Up</h3>
+
+        <p>
+            Always enter the correct Free Fire UID before placing
+            your order. Payments and order information should be
+            submitted only through this website.
+        </p>
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        💎 {{ shop_name }}
+    </div>
+
+    <p>
+        Fast & Secure Diamond Top-Up Service
+    </p>
+
+    <div class="footer-line"></div>
+
+    <small>
+        © 2026 {{ shop_name }}. All rights reserved.
+    </small>
+
+</footer>
+
+</body>
+  </html>
