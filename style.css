@@ -6,31 +6,29 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #050816;
+    background: #02050d;
     color: #fff;
-    min-height: 100vh;
 }
 
 header {
+    background: linear-gradient(135deg, #00113d, #061b52);
     text-align: center;
     padding: 35px 15px;
-    background: linear-gradient(135deg, #07133d, #071a5c, #09001f);
-    border-bottom: 1px solid #1d8cff;
+    border-bottom: 1px solid #174b9b;
 }
 
 header h1 {
     font-size: 32px;
-    color: #25aaff;
+    color: #20a9ff;
     margin-bottom: 10px;
-    text-shadow: 0 0 18px rgba(37,170,255,.6);
 }
 
 header p {
-    color: #aab4d0;
-    font-size: 16px;
+    color: #9aa8c7;
+    font-size: 17px;
 }
 
-main {
+.container {
     max-width: 1100px;
     margin: auto;
     padding: 55px 20px;
@@ -38,14 +36,19 @@ main {
 
 h2 {
     text-align: center;
-    font-size: 38px;
-    margin-bottom: 10px;
+    font-size: 42px;
+    margin-bottom: 12px;
 }
 
-main > p {
+h2 span {
+    color: #20a9ff;
+}
+
+.subtitle {
     text-align: center;
-    color: #8f9bb8;
-    margin-bottom: 40px;
+    color: #8f9bb5;
+    font-size: 18px;
+    margin-bottom: 45px;
 }
 
 .packages {
@@ -54,120 +57,115 @@ main > p {
     gap: 25px;
 }
 
-.package,
-.card {
+.package {
     position: relative;
-    background: linear-gradient(145deg, #0a1025, #050917);
-    border: 1px solid #24365f;
-    border-radius: 20px;
-    padding: 30px 20px;
+    background: linear-gradient(145deg, #050a18, #02050d);
+    border: 1px solid #26385c;
+    border-radius: 22px;
+    padding: 35px 25px 30px;
     text-align: center;
-    transition: .25s;
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    transition: 0.25s;
 }
 
-.package:hover,
-.card:hover {
+.package:hover {
     transform: translateY(-5px);
     border-color: #159cff;
-    box-shadow: 0 0 25px rgba(21,156,255,.25);
+    box-shadow: 0 10px 35px rgba(0, 145, 255, 0.18);
 }
 
-.package h3,
-.card h3 {
-    color: #25aaff;
-    font-size: 34px;
+.package h3 {
+    color: #20a9ff;
+    font-size: 38px;
     margin-bottom: 8px;
 }
 
-.package p,
-.card p {
-    color: #aab4d0;
-    font-size: 18px;
-    margin: 8px 0;
+.diamonds {
+    color: #9ba7bd;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.old-price {
+    color: #8c96a8;
+    text-decoration: line-through;
+    font-size: 17px;
+    margin-bottom: 5px;
 }
 
 .price {
     font-size: 30px;
     font-weight: bold;
-    color: #fff;
-    margin: 15px 0;
+    margin-bottom: 25px;
 }
 
-.old-price {
-    color: #707993;
-    text-decoration: line-through;
-    font-size: 17px;
-}
-
-.buy-btn,
-button {
-    display: inline-block;
+.buy-btn {
+    display: block;
     width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #087cff, #0052c7);
+    padding: 16px;
+    background: linear-gradient(90deg, #0752c9, #0877ed);
     color: white;
-    font-size: 17px;
-    font-weight: bold;
     text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(0,105,255,.3);
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.buy-btn:hover,
-button:hover {
-    background: linear-gradient(135deg, #19a4ff, #0065e8);
+.buy-btn:hover {
+    background: linear-gradient(90deg, #086bea, #159cff);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: #0a8f25;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .info {
     margin-top: 45px;
-    padding: 25px;
+    padding: 30px;
+    background: #050a16;
+    border: 1px solid #1c3154;
     border-radius: 18px;
-    background: #090f21;
-    border: 1px solid #1d2d50;
 }
 
 .info h3 {
-    color: #25aaff;
+    color: #20a9ff;
     margin-bottom: 15px;
+}
+
+.info p {
+    color: #aab4c7;
+    line-height: 1.8;
 }
 
 footer {
     text-align: center;
-    padding: 25px;
-    color: #71809f;
-    border-top: 1px solid #182442;
-    margin-top: 40px;
+    padding: 30px 15px;
+    color: #68758d;
+    border-top: 1px solid #18233a;
+    margin-top: 30px;
 }
 
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    margin: 8px 0 15px;
-    background: #080d1c;
-    color: white;
-    border: 1px solid #26385d;
-    border-radius: 10px;
-}
-
-@media (max-width: 650px) {
+@media (max-width: 700px) {
     header h1 {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     h2 {
-        font-size: 29px;
+        font-size: 30px;
     }
 
     .packages {
         grid-template-columns: 1fr;
     }
 
-    main {
+    .container {
         padding: 40px 15px;
     }
-  }
+}
+    
