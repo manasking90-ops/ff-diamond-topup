@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ shop_name }}</title>
 
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080b12;
+            color: white;
+        }
+
+        header {
+            background: linear-gradient(135deg, #111827, #172554);
+            padding: 25px 15px;
+            text-align: center;
+            border-bottom: 1px solid #26344d;
+        }
+
+        header h1 {
+            font-size: 25px;
+            color: #38bdf8;
+        }
+
+        header p {
+            margin-top: 7px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            padding: 20px 15px 40px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 25px 10px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .package {
+            position: relative;
+            background: #111827;
+            border: 1px solid #26344d;
+            border-radius: 15px;
+            padding: 20px 12px;
+            text-align: center;
+        }
+
+        .package h3 {
+            font-size: 22px;
+            color: #38bdf8;
+        }
+
+        .diamond {
+            color: #cbd5e1;
+            margin: 6px 0 12px;
+        }
+
+        .old {
+            color: #64748b;
+            text-decoration: line-through;
+            font-size: 13px;
+        }
+
+        .price {
+            font-size: 21px;
+            font-weight: bold;
+            margin: 5px 0 15px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -9px;
+            right: 10px;
+            background: #22c55e;
+            color: #06120a;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .buy-btn {
+            display: block;
+            width: 100%;
+            padding: 11px;
+            border-radius: 9px;
+            background: #0ea5e9;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .buy-btn:active {
+            transform: scale(.98);
+        }
+
+        .info {
+            margin-top: 25px;
+            background: #0f172a;
+            border: 1px solid #26344d;
+            border-radius: 15px;
+            padding: 18px;
+        }
+
+        .info h3 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        .info p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 430px) {
+            .packages {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .package {
+                padding: 17px 8px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>{{ shop_name }}</h1>
+    <p>Fast & Easy Free Fire Diamond Top-Up</p>
+</header>
+
+<div class="container">
+
+    <div class="hero">
+        <h2>Buy <span>Free Fire Diamonds</span></h2>
+        <p>Select your diamond package and continue to order.</p>
+    </div>
+
+    <div class="packages">
+
+        {% for package in packages %}
+
+        <div class="package">
+
+            {% if package.badge %}
+                <div class="badge">{{ package.badge }}</div>
+            {% endif %}
+
+            <h3>{{ package.diamonds }}</h3>
+
+            <div class="diamond">
+                💎 Diamonds
+            </div>
+
+            <div class="old">
+                ₹{{ package.old }}
+            </div>
+
+            <div class="price">
+                ₹{{ package.price }}
+            </div>
+
+            <a class="buy-btn"
+               href="{{ url_for('buy', package_id=package.id) }}">
+                BUY NOW
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <div class="info">
+        <h3>How to Order?</h3>
+
+        <p>
+            1. Apna diamond package select karein.<br>
+            2. Free Fire UID aur server enter karein.<br>
+            3. Payment complete karein.<br>
+            4. Payment screenshot aur UTR submit karein.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 {{ shop_name }}<br>
+    Secure & Fast Top-Up Service
+</footer>
+
+</body>
+</html>
